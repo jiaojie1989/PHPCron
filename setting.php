@@ -1,6 +1,6 @@
 <?php
 
-/*
+/* 
  * The MIT License
  *
  * Copyright 2014 jiaojie.
@@ -23,19 +23,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+define('WEB_ROOT', './');
+require(WEB_ROOT . 'lib/autoload.class.php');
 
-/**
- * Description of db
- *
- * @author jiaojie
- */
-class Conf_Db {
-    public static $dev_newziroom = array(
-        'database_type' => 'mysql',
-        'username' => 'homelink',
-        'password' => 'homelink',
-        'port' => '3306',
-        'charset' => 'utf8',
-        'database_name' => 'newziroom'
-        );
-}
+Lib_Autoload::register();
