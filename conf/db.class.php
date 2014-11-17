@@ -31,6 +31,7 @@
  */
 class Conf_Db {
     public static $dev_newziroom = array(
+        'server' => '172.16.15.242',
         'database_type' => 'mysql',
         'username' => 'homelink',
         'password' => 'homelink',

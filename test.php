@@ -24,6 +24,33 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+//header('content-type:text/html;charset=utf-8');
+echo microtime(1) . "\n";
 require('./setting.php');
 
-var_dump(Conf_Db::$dev_newziroom);
+$db = new Lib_Util_Dbcache(Conf_Db::$dev_newziroom);
+
+$table = 't_cms_user';
+$columns = array(
+        'user_account',
+        'cn',
+        );
+$where = array(
+        'AND' => array(
+            'is_del' => 0,
+            'type' => 1,
+            ),
+        );
+
+$data = $db->select($table, $columns, $where);
+
+if(FALSE != $data && is_array($data)) {
+    foreach($data as $v) {
+        //var_dump($v);
+    }
+} else {
+    echo date('Y-m-d H:i:s') . ' | ERROR QUERY | ' . $db->last_query() . "\n";
+    print_r($db->error());
+}
+
+echo microtime(1) . "\n";
